@@ -1,0 +1,1718 @@
+/* ===================================
+   LOVE ADVENTURE ❤️
+   STYLE.CSS
+=================================== */
+
+/* ---------- RESET ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    background:#020617;
+    color:#ffffff;
+}
+
+/* ---------- HERO ---------- */
+
+#hero{
+    position:relative;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* ---------- SKY ---------- */
+
+#sky{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            to bottom,
+            #020617 0%,
+            #08144D 35%,
+            #102B8F 70%,
+            #2146C7 100%
+        );
+    z-index:0;
+}
+
+/* ---------- BACKGROUND LAYERS ---------- */
+
+#stars,
+#shooting-stars,
+#petals,
+#hearts{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+#stars{
+    z-index:1;
+}
+
+#shooting-stars{
+    z-index:2;
+}
+
+#petals{
+    z-index:3;
+}
+
+#hearts{
+    z-index:4;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.18);
+    z-index:5;
+}
+
+/* ---------- CONTENT ---------- */
+
+.hero-content{
+    position:relative;
+    z-index:10;
+    text-align:center;
+    padding:20px;
+    max-width:800px;
+}
+
+.subtitle{
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:14px;
+    margin-bottom:18px;
+    color:#f5f5f5;
+}
+
+.hero-content h1{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(70px,8vw,100px);
+    margin-bottom:18px;
+    color:#ffffff;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.9),
+        0 0 25px rgba(255,190,220,.6),
+        0 0 50px rgba(255,140,200,.4);
+
+    animation:titleGlow 3s ease-in-out infinite alternate;
+}
+
+.description{
+    font-size:clamp(20px,2vw,28px);
+    margin-bottom:40px;
+}
+
+/* ---------- BUTTON ---------- */
+
+#giftBtn{
+    border:none;
+    outline:none;
+    cursor:pointer;
+
+    padding:18px 45px;
+
+    border-radius:999px;
+
+    font-size:20px;
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        #ff7eb3,
+        #ffb6d9
+    );
+
+    box-shadow:
+        0 10px 30px rgba(255,105,180,.35);
+
+    transition:.35s;
+}
+
+#giftBtn:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:
+        0 15px 40px rgba(255,105,180,.45);
+
+}
+/* ===================================
+   STARS
+=================================== */
+
+.star{
+    position:absolute;
+
+    background:#ffffff;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 8px #ffffff,
+        0 0 18px rgba(255,255,255,.8);
+
+    animation:twinkle 2.5s ease-in-out infinite;
+}
+
+/* ===================================
+   MOON
+=================================== */
+
+#moon{
+
+    position:absolute;
+
+    top:70px;
+
+    right:80px;
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+
+        circle at 30% 30%,
+
+        #ffffff,
+
+        #f5f5f5 60%,
+
+        #d9d9d9 100%
+
+    );
+
+    box-shadow:
+
+        0 0 30px rgba(255,255,255,.95),
+
+        0 0 80px rgba(255,255,255,.45);
+
+    animation:moonFloat 6s ease-in-out infinite;
+
+    z-index:6;
+
+}
+
+/* ===================================
+   PETALS
+=================================== */
+
+.petal{
+
+    position:absolute;
+
+    width:14px;
+
+    height:14px;
+
+    background:#ffd6ea;
+
+    border-radius:50% 0 50% 50%;
+
+    opacity:.9;
+
+    filter:drop-shadow(0 0 6px rgba(255,214,234,.5));
+
+}
+
+/* ===================================
+   POPCAT
+=================================== */
+
+#popcat{
+
+    position:absolute;
+
+    left:25px;
+
+    bottom:20px;
+
+    width:120px;
+
+    z-index:15;
+
+    animation:popcatFloat 3s ease-in-out infinite;
+
+}
+
+/* ===================================
+   SCROLL INDICATOR
+=================================== */
+
+.scroll-indicator{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:32px;
+
+    color:white;
+
+    opacity:.8;
+
+    z-index:20;
+
+    animation:bounce 2s infinite;
+
+}
+/* ===================================
+   ANIMATIONS
+=================================== */
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:.25;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
+
+}
+
+@keyframes titleGlow{
+
+    from{
+
+        text-shadow:
+            0 0 10px rgba(255,255,255,.8),
+            0 0 20px rgba(255,190,220,.5),
+            0 0 40px rgba(255,140,200,.3);
+
+    }
+
+    to{
+
+        text-shadow:
+            0 0 20px rgba(255,255,255,1),
+            0 0 40px rgba(255,190,220,.8),
+            0 0 70px rgba(255,140,200,.6);
+
+    }
+
+}
+
+@keyframes moonFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translate(-50%,0);
+    }
+
+    50%{
+        transform:translate(-50%,10px);
+    }
+
+}
+
+@keyframes popcatFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media (max-width:768px){
+
+    #moon{
+
+        width:90px;
+        height:90px;
+
+        top:30px;
+        right:20px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:60px;
+
+    }
+
+    .description{
+
+        font-size:20px;
+
+    }
+
+    #giftBtn{
+
+        font-size:18px;
+        padding:15px 34px;
+
+    }
+
+    #popcat{
+
+        width:80px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .hero-content{
+
+        padding:16px;
+
+    }
+
+    .subtitle{
+
+        font-size:12px;
+        letter-spacing:2px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:48px;
+
+    }
+
+    .description{
+
+        font-size:18px;
+
+    }
+
+    #giftBtn{
+
+        width:90%;
+        max-width:280px;
+
+    }
+
+}
+/* ==========================
+   ENVELOPE
+========================== */
+
+/* ===================================
+   PREMIUM LOVE ENVELOPE
+=================================== */
+
+#envelope-container{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.65);
+    z-index:9999;
+}
+
+#envelope{
+
+    position:relative;
+
+    width:380px;
+    height:250px;
+
+    transform:scale(.75);
+
+    opacity:0;
+
+    transition:
+        transform .6s ease,
+        opacity .6s ease;
+}
+
+#envelope.open{
+
+    transform:scale(1);
+
+    opacity:1;
+}
+
+/* ======================
+   BACK OF ENVELOPE
+====================== */
+
+.envelope-back{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        to bottom,
+        #ffd7e8,
+        #f7b3cb
+    );
+
+    border-radius:16px;
+
+    z-index:1;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.25);
+
+}
+
+/* ======================
+   LETTER
+====================== */
+
+.letter{
+
+    position:absolute;
+
+    left:50%;
+    bottom:18px;
+
+    width:88%;
+    height:320px;
+
+    background:#fffdf9;
+
+    border-radius:12px;
+
+    transform:
+        translateX(-50%)
+        translateY(72%);
+
+    transition:
+        transform .9s ease;
+
+    overflow-y:auto;
+
+    z-index:2;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.18);
+
+}
+
+#envelope.open .letter{
+
+    transform:
+        translateX(-50%)
+        translateY(-135px);
+
+}
+
+/* ======================
+   LETTER CONTENT
+====================== */
+
+.letter-content{
+
+    padding:35px;
+
+    text-align:center;
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+    transition-delay:.8s;
+
+}
+
+#envelope.open .letter-content{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+.letter-content h2{
+    font-family:'Great Vibes', cursive;
+    font-size:54px;
+    color:#e91e63;
+    margin-bottom:20px;
+    font-weight:400;
+    text-shadow:0 2px 8px rgba(233,30,99,.15);
+}
+
+.letter-content p{
+    font-family:'Dancing Script', cursive;
+    font-size:28px;
+    line-height:1.8;
+    color:#555;
+    text-align:center;
+    letter-spacing:.5px;
+}
+
+/* ======================
+   FRONT POCKET
+====================== */
+
+.envelope-front{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:120px;
+
+    background:linear-gradient(
+        to bottom,
+        #f8b8cf,
+        #ef9fba
+    );
+
+    border-radius:
+        0
+        0
+        16px
+        16px;
+
+    z-index:3;
+
+}
+
+/* ======================
+   TOP FLAP
+====================== */
+
+.flap{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:125px;
+
+    background:#ffc8dc;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin:top;
+
+    transition:
+        transform .8s ease;
+
+    z-index:1;
+
+}
+
+#envelope.open .flap{
+
+    transform:rotateX(180deg);
+
+}
+
+/* ======================
+   CLOSE BUTTON
+====================== */
+
+#closeEnvelope{
+
+   position: fixed;
+
+top: max(20px, env(safe-area-inset-top));
+right: max(20px, env(safe-area-inset-right));
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.2);
+
+    color:white;
+
+    font-size:34px;
+
+    cursor:pointer;
+
+    z-index:99999;
+
+    transition:.3s;
+
+}
+
+#closeEnvelope:hover{
+
+    background:#ff6ea9;
+
+    transform:rotate(90deg) scale(1.15);
+
+}
+
+#closeEnvelope:hover{
+
+    transform:scale(1.15) rotate(90deg);
+
+    background:#ff7eb3;
+
+}
+/* ===========================
+   CHAPTER ONE - LOVE TIMELINE
+=========================== */
+
+#timeline{
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 20px;
+    overflow: hidden;
+    background: linear-gradient(to bottom,#0b1026,#141c42,#1b2352);
+}
+
+.timeline-overlay{
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at center,
+        rgba(255,255,255,.06),
+        transparent 70%);
+    pointer-events:none;
+}
+
+.timeline-container{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.chapter{
+    font-family:'Great Vibes',cursive;
+    font-size:48px;
+    color:#ff9cc8;
+    margin-bottom:10px;
+}
+
+#timeline h2{
+    font-size:42px;
+    color:#fff;
+    margin-bottom:20px;
+}
+
+.chapter-text{
+    max-width:700px;
+    margin:0 auto 60px;
+    color:#e8e8e8;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.memory-card{
+    opacity: 0;
+transform: translateY(80px);
+transition: all .8s ease;
+    background:rgba(255,255,255,.10);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:25px;
+    padding:35px;
+    margin:30px auto;
+    width:90%;
+    max-width:650px;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.memory-card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 20px 45px rgba(255,105,180,.35);
+}
+
+.memory-card .emoji{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.memory-card h3{
+    color:white;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+.memory-card p{
+    color:#f1f1f1;
+    line-height:1.8;
+    font-size:18px;
+}
+.memory-card.show{
+    opacity:1;
+    transform:translateY(0);
+}
+/* ===========================
+   WHY I LOVE YOU SECTION
+=========================== */
+
+#love-reasons{
+    min-height:100vh;
+    padding:120px 20px;
+    background:linear-gradient(to bottom,#1b2352,#2b145a,#4b0f4e);
+    text-align:center;
+}
+
+.love-container{
+    max-width:900px;
+    margin:auto;
+}
+
+#love-reasons h2{
+    font-family:'Great Vibes',cursive;
+    font-size:60px;
+    color:#ffb6d9;
+    margin-bottom:15px;
+}
+
+.love-subtitle{
+    color:#f5f5f5;
+    font-size:20px;
+    margin-bottom:50px;
+}
+
+.reason-card{
+    background:rgba(255,255,255,.10);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:25px;
+    padding:25px;
+    margin:25px auto;
+    max-width:700px;
+    color:white;
+    font-size:22px;
+    transition:.4s ease;
+}
+
+.reason-card span{
+    display:block;
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.reason-card:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 15px 35px rgba(255,105,180,.35);
+}
+/* ===========================
+   FOREVER COUNTER
+=========================== */
+
+#forever-counter{
+    min-height:100vh;
+    padding:120px 20px;
+    text-align:center;
+    background:linear-gradient(to bottom,#4b0f4e,#1b2352,#0b1026);
+}
+
+#forever-counter h2{
+    font-family:'Great Vibes',cursive;
+    font-size:60px;
+    color:#ffd1e8;
+    margin-bottom:60px;
+}
+
+.counter-grid{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+.counter-box{
+    width:180px;
+    padding:30px;
+    border-radius:25px;
+    background:rgba(255,255,255,.10);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    transition:.4s;
+}
+
+.counter-box:hover{
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 20px 40px rgba(255,105,180,.35);
+}
+
+.counter-box span{
+    display:block;
+    font-size:48px;
+    font-weight:700;
+    color:#fff;
+    text-shadow: 0 0 20px rgba(255,255,255,.5);
+}
+
+.counter-box p{
+    margin-top:10px;
+    color:#ffd6ea;
+    font-size:18px;
+}
+
+.forever-text{
+    margin-top:70px;
+    font-family:'Great Vibes',cursive;
+    font-size:48px;
+    color:#ffd6ea;
+    text-shadow:0 0 20px rgba(255,182,217,.5);
+}
+/* ===========================
+   FINAL SURPRISE
+=========================== */
+
+#final-surprise{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 20px;
+    background:linear-gradient(to bottom,#0b1026,#000);
+}
+
+#surpriseBtn{
+    padding:20px 45px;
+    border:none;
+    border-radius:50px;
+    font-size:24px;
+    font-weight:600;
+    color:#fff;
+    background:linear-gradient(45deg,#ff4d88,#ff7eb3);
+    cursor:pointer;
+    box-shadow:0 0 30px rgba(255,105,180,.5);
+    transition:.4s;
+}
+
+#surpriseBtn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 50px rgba(255,105,180,.8);
+}
+
+#loveMessage{
+    display:none;
+    max-width:800px;
+    margin-top:60px;
+    animation:fadeIn 2s ease;
+}
+
+#loveMessage h2{
+    font-family:'Great Vibes',cursive;
+    font-size:72px;
+    color:#ffd6ea;
+    margin-bottom:30px;
+    text-shadow:0 0 25px rgba(255,182,217,.6);
+}
+
+#loveMessage p{
+    font-family:'Dancing Script',cursive;
+    font-size:32px;
+    line-height:1.8;
+    color:white;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+/* ===========================
+   LOADING SCREEN
+=========================== */
+
+#loading-screen{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#090b1f,#25104d,#5c1b74);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    transition:opacity 1s ease, visibility 1s ease;
+}
+
+#loading-screen.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-heart{
+    font-size:80px;
+    animation:heartbeat 1.2s infinite;
+}
+
+#loading-screen h1{
+    margin-top:20px;
+    font-family:'Great Vibes',cursive;
+    font-size:64px;
+    color:#fff;
+    text-shadow:0 0 20px rgba(255,105,180,.5);
+}
+
+#loading-screen p{
+    margin-top:15px;
+    font-size:20px;
+    color:#ffd6ea;
+}
+
+@keyframes heartbeat{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.2);
+    }
+}
+/* ===========================
+   MOUSE SPARKLES
+=========================== */
+
+.sparkle{
+    position:fixed;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#ff9ac9;
+    pointer-events:none;
+    z-index:9998;
+    animation:sparkleFade .8s linear forwards;
+    box-shadow:
+        0 0 8px #ff9ac9,
+        0 0 16px #ff66b3;
+}
+
+@keyframes sparkleFade{
+
+    from{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    to{
+        opacity:0;
+        transform:translateY(-20px) scale(0);
+    }
+
+}
+/* ===========================
+   CLICK HEARTS
+=========================== */
+
+.click-heart{
+    position:fixed;
+    font-size:22px;
+    pointer-events:none;
+    z-index:9999;
+    animation:heartFloat 2s ease-out forwards;
+}
+
+@keyframes heartFloat{
+
+    0%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+    100%{
+        opacity:0;
+        transform:translateY(-120px) scale(1.8);
+    }
+
+}
+/* ===========================
+   CURSOR GLOW
+=========================== */
+
+#cursor-glow{
+    position:fixed;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9997;
+    background:radial-gradient(circle,
+        rgba(255,182,217,.35) 0%,
+        rgba(255,105,180,.15) 40%,
+        transparent 75%);
+    transform:translate(-50%, -50%);
+    transition:
+        left .08s linear,
+        top .08s linear;
+    mix-blend-mode:screen;
+}
+/* ===========================
+   ENDING STARS
+=========================== */
+
+#ending-stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:2;
+    opacity:0;
+    transition:opacity 1.5s ease;
+}
+
+#ending-stars.active{
+    opacity:1;
+}
+
+.end-star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:white;
+    box-shadow:0 0 10px white;
+    animation:twinkleStar 2s infinite ease-in-out;
+}
+
+@keyframes twinkleStar{
+
+    0%,100%{
+        opacity:.2;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.8);
+    }
+
+}
+#footer{
+    text-align:center;
+    padding:40px 20px;
+    color:rgba(255,255,255,.65);
+    font-size:16px;
+    background:#060812;
+}
+/* ===========================
+   MUSIC PLAYER
+=========================== */
+
+#musicBtn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    z-index:99999;
+
+    padding:14px 22px;
+
+    border:none;
+    border-radius:40px;
+
+    cursor:pointer;
+
+    background:linear-gradient(45deg,#ff4d88,#ff9ac9);
+
+    color:white;
+
+    font-size:16px;
+    font-weight:600;
+
+    box-shadow:0 10px 25px rgba(255,105,180,.35);
+
+    transition:.3s;
+}
+
+#musicBtn:hover{
+
+    transform:translateY(-3px) scale(1.05);
+
+    box-shadow:0 15px 35px rgba(255,105,180,.55);
+
+}
+/* ==========================
+   TULIP GAME
+========================== */
+
+#tulipGame{
+    display:none;
+    text-align:center;
+    padding:40px 20px;
+    animation:fadeIn 1s ease;
+}
+
+#tulipGame h2{
+    color:#ff5e9c;
+    margin-bottom:15px;
+}
+
+#tulipGame p{
+    color:white;
+    margin-bottom:25px;
+}
+
+#flowerGarden{
+    display:grid;
+    grid-template-columns:repeat(5,80px);
+    justify-content:center;
+    gap:18px;
+    margin-top:20px;
+}
+
+.flower{
+    font-size:48px;
+    cursor:pointer;
+    transition:.3s;
+    user-select:none;
+}
+
+.flower:hover{
+    transform:scale(1.25) rotate(10deg);
+}
+
+#gameHint{
+    margin-top:25px;
+    font-size:20px;
+    color:#ffd6e7;
+    min-height:30px;
+}
+/* ===========================
+   REAL TYPEWRITER
+=========================== */
+
+#typewriter{
+    white-space:pre-wrap;
+    line-height:1.8;
+}
+/* LOVE LETTER REVEAL */
+
+#loveMessage{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:1.2s ease;
+
+}
+
+#loveMessage.showLetter{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    section{
+        padding:60px 20px;
+    }
+
+    h1{
+        font-size:2.3rem;
+        text-align:center;
+    }
+
+    h2{
+        font-size:1.8rem;
+        text-align:center;
+    }
+
+    p{
+        font-size:16px;
+        line-height:1.8;
+    }
+
+    #hero{
+        padding:100px 20px;
+    }
+
+    .memory-card{
+        width:100%;
+        margin:15px 0;
+    }
+
+    #flowerGarden{
+
+        grid-template-columns:repeat(4,1fr);
+
+        gap:15px;
+
+    }
+
+    .flower{
+
+        font-size:40px;
+
+    }
+
+    #musicBtn{
+
+        right:15px;
+
+        bottom:15px;
+
+        font-size:14px;
+
+        padding:12px 18px;
+
+    }
+
+    button{
+
+        width:90%;
+
+        max-width:320px;
+
+    }
+
+    img{
+
+        max-width:100%;
+
+        height:auto;
+
+    }
+
+    #loveMessage{
+
+        padding:25px;
+
+    }
+
+    footer{
+
+        font-size:14px;
+
+        padding:20px;
+
+    }
+
+}
+#closeEnvelope{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+#closeEnvelope:hover{
+    transform: scale(1.1) rotate(90deg);
+    background: #ff7eb3;
+}
+/* =========================
+   FINAL QUESTION
+========================= */
+
+#finalQuestion{
+    text-align:center;
+    padding:100px 20px;
+    display:none;
+}
+
+#finalQuestion h2{
+    font-size:2.5rem;
+    color:#ff5c8a;
+    margin-bottom:20px;
+}
+
+.questionText{
+    font-size:1.6rem;
+    color:white;
+    margin-bottom:40px;
+}
+
+.questionButtons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+#yesBtn,
+#noBtn{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#yesBtn{
+    background:#ff4d6d;
+    color:white;
+}
+
+#yesBtn:hover{
+    transform:scale(1.1);
+}
+
+#noBtn{
+    background:#555;
+    color:white;
+}
+
+#questionResponse{
+    margin-top:40px;
+    font-size:28px;
+    color:#ffd6e7;
+}
+/* ===== FIREWORKS ===== */
+
+#fireworks{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.firework{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+    0%{
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100%{
+        transform: scale(15);
+        opacity: 0;
+    }
+}#fireworks{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.firework{
+    position:fixed;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    box-shadow:
+        0 0 15px currentColor,
+        0 0 30px currentColor,
+        0 0 50px currentColor;
+    animation: explode 1.2s ease-out forwards;
+    z-index:9999;
+}
+
+@keyframes explode{
+
+    0%{
+        transform:scale(0);
+        opacity:1;
+    }
+
+    30%{
+        transform:scale(2);
+    }
+
+    100%{
+        transform:scale(25);
+        opacity:0;
+    }
+
+}
+#secretHeart{
+    position: fixed;
+    top: 20px;
+left: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    opacity: 1;
+    z-index: 99999;
+}
+#secretHeart:hover{
+    opacity:1;
+    transform:scale(1.3);
+}
+
+#secretMessage{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 90%;
+    max-width: 500px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s ease;
+    z-index: 10000;
+}
+
+#secretMessage.show{
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#secretMessage h2{
+    color: #ff7aa8;
+    margin-bottom: 15px;
+}
+
+#secretMessage p{
+    line-height: 1.8;
+    font-size: 18px;
+}
+.explode-heart{
+    position: fixed;
+    font-size: 18px;
+    pointer-events: none;
+    z-index: 99999;
+    animation: heartBurst 2s ease-out forwards;
+}
+
+@keyframes heartBurst{
+
+    0%{
+        transform: translate(0,0) scale(0.3);
+        opacity: 1;
+    }
+
+    100%{
+        transform:
+            translate(
+                calc(var(--x) * 1px),
+                calc(var(--y) * 1px)
+            )
+            scale(1.8)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+#finaleOverlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 8, 25, 0.88);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .8s ease, visibility .8s ease;
+    z-index: 99998;
+}
+
+#finaleOverlay.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+#finaleContent{
+    text-align: center;
+    color: white;
+    padding: 20px;
+    animation: finaleFloat 3s ease-in-out infinite;
+}
+
+#ring{
+    font-size: 70px;
+    margin-bottom: 20px;
+    animation: ringRise 1.5s ease-out;
+    filter: drop-shadow(0 0 12px rgba(255,255,255,.6));
+}
+
+@keyframes diamondSparkle{
+    from{
+        transform:translateX(-50%) rotate(45deg) scale(1);
+    }
+
+    to{
+        transform:translateX(-50%) rotate(45deg) scale(1.2);
+        box-shadow:
+            0 0 18px white,
+            0 0 35px #8fd3ff,
+            0 0 60px white;
+    }
+}
+
+#finaleContent h1{
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: #ff7aa8;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(255,122,168,.6);
+}
+
+#finaleContent p{
+    font-size: clamp(1rem, 2.8vw, 1.4rem);
+    line-height: 1.8;
+    max-width: 650px;
+    margin: auto;
+}
+
+@keyframes ringRise{
+    from{
+        transform: translateY(150px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes finaleFloat{
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+}
+.finale-petal{
+    position: fixed;
+    top: -40px;
+    font-size: 24px;
+    pointer-events: none;
+    z-index: 99999;
+    animation: petalFall linear forwards;
+}
+
+@keyframes petalFall{
+
+    0%{
+        transform: translateY(-50px) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(110vh)
+            translateX(var(--drift))
+            rotate(720deg);
+
+        opacity:0;
+    }
+
+}
+#finalPromise{
+    margin-top: 25px;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: #ffd6e7;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.2s ease;
+}
+
+#finalPromise.show{
+    opacity: 1;
+    transform: translateY(0);
+}html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
